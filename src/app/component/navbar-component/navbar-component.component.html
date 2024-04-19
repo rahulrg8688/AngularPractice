@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand p-2" href="#">App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"  id="collapsibleNavbar">
+        <ul class="navbar-nav ms-auto">
+          <ng-container *ngFor="let menu of navs">
+            <li class="nav-item" *ngIf="menu.sub.length===0">
+              <a class="nav-link" [routerLink]="menu.url" routerLinkActive="active">{{menu.title}}</a>
+            </li>
+            <li class="nav-item dropdown" *ngIf="menu.sub.length>0">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" routerLink="/courses/angular">{{menu.title}}</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" *ngFor="let submenu of menu.sub" [routerLink]="submenu.url">{{submenu.title}}</a></li>
+                
+              </ul>
+            </li>
+          </ng-container>
+         
+          
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/services" routerLinkActive="active">services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  

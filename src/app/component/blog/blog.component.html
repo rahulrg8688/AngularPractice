@@ -1,0 +1,48 @@
+<app-navbar-component></app-navbar-component>
+<h1>Choose favourite color</h1>
+<div [ngSwitch]="color | lowercase">
+    <h1 *ngSwitchCase="'red'" style="color:{{color}}">My Favourite color is {{color}}</h1>
+    <h1 *ngSwitchCase="'black'" style="color:{{color}}">My Favourite color is {{color}}</h1>
+    
+    
+</div>
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">courseId</th>
+                    
+                    <th scope="col">coursename</th>
+                    
+                    <th scope="col">coursePrice</th>
+                    <th scope="col">Course type</th>
+                    <th scope=col>content</th>
+                </tr>
+            </thead>
+            <tbody>
+               <ng-container *ngFor="let course of mycourses;let i=index">
+            <tr>
+                <td>{{i+1}}</td>
+                <td>{{course.courseName}}</td>
+                <td>{{course.coursePrice}}</td>
+                <td>{{course.type}}</td>
+                <td>{{course.content}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(i+1)">Delete</button>
+                </td>
+            </tr>
+            
+            </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <h1 [ngStyle]="abc">haii</h1>
+    <!-- <h1 [ngStyle]="quty==0?green:red">llllllk</h1> -->
+</div>
+<h1 [ngClass]="clr">Registered successfully</h1>
+<h1 [ngClass]="clr">Data Already Registered</h1>
+
+<app-navbar-footer></app-navbar-footer>

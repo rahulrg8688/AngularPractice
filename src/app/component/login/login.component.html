@@ -1,0 +1,31 @@
+<app-navbar-component></app-navbar-component>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h1>Login</h1>
+                </div>
+                <div class="card-body">
+                    <form  id="login" [formGroup]="Login" (submit)="login()">
+                        <div class="mt-3 mb-3">
+                            <label class="form-label">Enter Username</label>
+                            <input type="text" class="form-control"  [ngClass]="{'is-invalid':isSubmit && f.username.errors}" id="username" formControlName="username" required name="username"/>
+                            <span *ngIf="isSubmit && f.username.errors" class="text-danger">Enter Username</span>
+                        </div>
+                        <div class="mt-3 mb-3">
+                            <label class="form-label">Enter password</label>
+                            <input type="text" class="form-control" [ngClass]="{'is-invalid':isSubmit && f.password.errors}" formControlName="password" required
+                            id="password"  name="password"/>
+                            <span *ngIf="isSubmit && f.password.errors" class="text-danger">Enter password</span>
+                        </div>
+                        <input type="submit" [disabled]="Login.invalid"  class="btn btn-primary" value="Login"/>
+                    <span [ngClass]="clr">{{msg}}</span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-navbar-footer></app-navbar-footer>

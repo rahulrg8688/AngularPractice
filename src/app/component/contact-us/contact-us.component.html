@@ -1,0 +1,32 @@
+<app-navbar-component></app-navbar-component>
+
+<p>contact-us works!</p>
+<div class="container">
+<h1>Show and Hide password</h1>
+    <form action="">
+<div class="input-group mb-3">
+    <input [type]="type1" class="form-control" placeholder="Enter password"/>
+    <button class="btn btn-primary" (click)="abc('text')" type="button">Show</button>
+    <button class="btn btn-danger" (click)="abc('password')"  type="button">Hide</button>
+</div>
+</form>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h1>Counter</h1>
+            </div>
+            <div class="card-body text-center">
+                <h1 [textContent]="val">{{val}}</h1>
+                <button (click)="Inc()">Increment</button>
+                <button (click)="dec()">Decrement</button>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+</div>
+
+
+<app-navbar-footer></app-navbar-footer>

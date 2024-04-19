@@ -1,0 +1,100 @@
+<app-navbar-component></app-navbar-component>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Register user</h3>
+
+                </div>
+                <div class="card-body">
+                    <form id="register" #regform="ngForm">
+                        <div class="mb-3 mt-3">
+                            <label class="form-label"><span class="text-danger">*</span> FirstName: </label>
+                            <input type="text" class="form-control" id="fname" 
+                            [(ngModel)]="register.fname" #fname="ngModel" 
+                            [value]="register.fname" name="fname" 
+                            placeholder="Enter name" [ngClass]="fname.touched && fname.invalid?'border border-danger':''" required/>
+                       {{fname.touched}}{{fname.invalid}}
+                            <p class="text-danger fw-bold" *ngIf="fname.touched&&fname.invalid">Enter firstName</p>
+                        </div>
+                        
+                        <div class="mb-3 mt-3">
+                            <label class="form-label"><span class="text-danger">*</span> LastName: </label>
+                            <input type="text" class="form-control" [ngClass]="Lname.touched && Lname.invalid?'border border-danger':''" id="Lname" 
+                            [(ngModel)]="register.lname" #Lname="ngModel" name="Lname" placeholder="Enter Last name"/>
+                        <span class="text-danger fw-bold" *ngIf="Lname.touched && Lname.invalid">Enter last name</span>
+                        <span class="text-danger">Enter valid</span>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label"><span class="text-danger">*</span> Email </label>
+                            <input type="text" class="form-control" id="Email" #Email="ngModel" 
+                            [(ngModel)]="register.email" name="email" 
+                            [ngClass]="Email.touched&&Email.invalid ? 'border border-danger':''"
+                            placeholder="Enter Email" required/>
+                        <span class="text-danger" *ngIf="Email.touched&&Email.invalid">Enter Email</span>
+                        </div>
+                        
+                        <div class="mb-3 mt-3">
+                            <label class="form-label"><span class="text-danger">*</span> Phone </label>
+                            <input type="text" class="form-control" #phno="ngModel" id="phone" [(ngModel)]="register.phno"
+                             name="phone" placeholder="Enter Phone" [ngClass]="phno.invalid&&phno.touched ?'border border-danger':''" required/>
+                        <span class="text-danger" *ngIf="phno.touched&&phno.invalid">Enter phoneNumber</span>
+                        </div>
+                        
+                        <div class="mb-3 mt-3">
+                            <label class="form-label"><span class="text-danger">*</span>Password</label>
+                            <input type="text" class="form-control" id="Password" #pwd="ngModel" [ngClass]="pwd.invalid&&pwd.touched ? 'border border-danger':''" [(ngModel)]="register.password"
+                             name="password" placeholder="Enter password" required/>
+                             <span *ngIf="pwd.invalid&&pwd.touched">Enter password</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [hidden]="regform.invalid" (click)="submitButton()">Register</button>
+                        <span [ngClass]="clr" [textContent]="message"></span>
+                        
+                        <p >You have an account <a routerLink="/Login" class=" btn btn-primary text-white text-decoration-none ">Login Here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div>
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">courseId</th>
+                        
+                        <th scope="col">coursename</th>
+                        
+                        <th scope="col">coursePrice</th>
+                        <th scope="col">Course type</th>
+                        <th scope=col>content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <ng-container *ngFor="let course of UserDetails;let i=index">
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{course.fname}}</td>
+                    <td>{{course.lname}}</td>
+                    <td>{{course.email}}</td>
+                    <td>{{course.phno}}</td>
+                    <td>{{course.password}}</td>
+                    <td>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                
+                </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<app-navbar-footer></app-navbar-footer>

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand p-2" href="#">{{name}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"  id="collapsibleNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" *ngFor="let menu of navs">
+            <a class="nav-link" [routerLink]="menu.url" routerLinkActive="active">{{menu.title}}</a>
+          </li>
+          <button type="submit" class="btn btn-danger" (click)="Logout()">Logout</button>
+          </ul>
+          </div>
+          </div>
+          </nav>
