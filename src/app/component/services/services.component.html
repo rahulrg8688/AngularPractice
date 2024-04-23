@@ -1,0 +1,26 @@
+<app-navbar-component></app-navbar-component>
+
+<section id="courses">
+    <h1 class="dispaly-3 text-center text-primary">Courses List</h1>
+<div class="container">
+    <div class="row">
+<ng-container *ngFor="let course of AllCourses;let i=index">
+        <div class="col-md-4 col-sm-6 col-12 mb-3" *ngIf="(course.type|lowercase)==='development'" >
+            
+            <div class="card h-100">
+        
+                <img src="../assets/Images/Courses/{{course.img}}" class="w-100" />
+                <div class="card-body">
+                    <h3 class="card-title">{{i+1}} {{course.name | titlecase}}</h3>
+                    <p class="card-text">{{course.content}}</p>
+                    <button class="btn btn-danger me-2">{{course.fee | currency:"INR"}}</button>
+                    
+                <button class="btn btn-primary">{{course.duration}}</button>
+                </div>
+            </div>
+        </div>
+</ng-container>
+    </div>
+</div>
+</section>
+<app-navbar-footer></app-navbar-footer>
